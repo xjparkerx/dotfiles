@@ -1,0 +1,33 @@
+[general]
+ui = quiet
+accounts = GMail
+#pythonfile = ~/.offlineimap/nametrans.py
+maxsyncaccounts = 1
+
+[Account GMail]
+localrepository = Gmail-Local
+remoterepository = Gmail-Remote
+autorefresh = 120
+quick = 120
+
+[Repository Gmail-Local]
+type = Maildir
+localfolders = ~/mail/gmail 
+realdelete = no
+folderfilter = lambda foldername: foldername not in ('[Gmail]/All Mail','[Gmail]/Starred','[Gmail]/Important')
+#nametrans = nt_local
+
+[Repository Gmail-Remote]
+type = Gmail 
+remoteuser = 
+remotepass =  
+realdelete = no
+folderfilter = lambda foldername: foldername not in ('[Gmail]/All Mail','[Gmail]/Starred','[Gmail]/Important')
+#nametrans = nt_remote
+keepalive = 60
+holdconnectionopen = yes
+
+#global options
+status_backend = sqlite
+ssl = yes
+cert_fingerprint = b0ba392bba326e6feb1add4d04fa0fb86cd173fa
